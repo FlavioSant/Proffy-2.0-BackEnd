@@ -38,6 +38,8 @@ export default class ClassesController {
       .join('users', 'classes.user_id', '=', 'users.id')
       .select(['classes.*', 'users.*']);
 
+    classes.map((c) => delete c.password);
+
     return response.json(classes);
   }
 

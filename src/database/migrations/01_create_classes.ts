@@ -7,7 +7,7 @@ export async function up(knex: Knex) {
     table.decimal('cost').notNullable();
 
     table
-      .integer('user_id')
+      .string('user_id')
       .notNullable()
       .references('id')
       .inTable('users')

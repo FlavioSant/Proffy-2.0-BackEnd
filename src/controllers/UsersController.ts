@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { uuid } from 'uuidv4';
 import { hash } from 'bcryptjs';
 
 import db from '../database/connection';
@@ -27,6 +28,7 @@ export default class UsersController {
       const hashedPassword = await hash(password, 8);
 
       await db('users').insert({
+        id: uuid(),
         name,
         last_name,
         email,
